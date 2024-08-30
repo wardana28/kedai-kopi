@@ -15,7 +15,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg);
-  /* min-height: 2000px; */
+  min-height: 2000px;
 }
 
 /* navbar */
@@ -147,6 +147,53 @@ body {
 }
 /*penutup hero section */
 
+/* section about */
+.about {
+  padding: 10rem 7% 1.4rem;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.about span {
+  color: var(--primary);
+}
+
+.about .row {
+  color: #fff;
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+/* .about .row .about-img img {
+  width: 100%;
+} */
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 100;
+  line-height: 1.6;
+}
+/*penutup section about */
+
 /* media query */
 /* laptop */
 @media (max-width: 1366px) {
@@ -190,6 +237,33 @@ body {
 
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.2);
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about img {
+    margin-bottom: 5rem;
+  }
+
+  .about .row .about-img img {
+    height: 24rem;
+    /* object-fit: cover; */
+    object-position: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .about .row p {
+    font-size: 1.6rem;
   }
 }
 
