@@ -113,7 +113,7 @@ body {
 }
 
 .hero .content h1 {
-  font-size: 3em;
+  font-size: 2em;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   line-height: 1.3;
@@ -126,9 +126,9 @@ body {
 
 .hero .content p {
   font-size: 1.6rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   line-height: 1.4;
-  font-weight: 150;
+  font-weight: 300;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   line-height: 1.3;
   mix-blend-mode: difference;
@@ -170,6 +170,16 @@ body {
 
 .about .row .about-img {
   flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.about .row .content {
+  flex: 1 1 35px;
+  padding: 0 1rem;
 }
 
 /* .about .row .about-img img {
@@ -248,7 +258,7 @@ body {
   }
 
   .about .row .about-img img {
-    height: 24rem;
+    /* height: 24rem; */
     /* object-fit: cover; */
     object-position: center;
   }
