@@ -305,6 +305,10 @@ html {
 .menu .row .menu-card .menu-card-title {
   margin: 1rem auto 0.5rem;
 }
+
+.menu .row .menu-card .menu-card-price {
+  font-weight: bold;
+}
 /* penutup menu section */
 
 /* products section */
@@ -350,6 +354,31 @@ html {
 
 .products .product-image img {
   height: 25rem;
+}
+
+.products .product-content h3 {
+  font-size: 2rem;
+}
+
+.products .product-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: gold;
+}
+
+.products .product-stars .stars-value {
+  fill: gold;
+}
+
+.products .product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.products .product-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 /* penutup products section */
 
