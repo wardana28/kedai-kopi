@@ -89,6 +89,48 @@ html {
   display: none;
 }
 
+/* navbar search form */
+
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 9%;
+  background-color: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform: scaleX(0);
+  transform-origin: top;
+  transition: 0.5s;
+  /* border-radius: 10px 10px 10px 10px; */
+}
+
+.navbar .search-form.active {
+  transform: scaleX(1);
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+/* penutup navbar search form */
+
+/*penutup navbar */
+
 /* hero section */
 .hero {
   color: white;
@@ -158,12 +200,14 @@ html {
 /* section about */
 .about,
 .menu,
+.products,
 .contact {
   padding: 10rem 7% 1.4rem;
 }
 
 .about h2,
 .menu h2,
+.products h2,
 .contact h2 {
   text-align: center;
   font-size: 2.6rem;
@@ -173,6 +217,7 @@ html {
 
 .about h2 span,
 .menu h2 span,
+.products h2 span,
 .contact h2 span {
   color: var(--primary);
 }
@@ -225,6 +270,7 @@ html {
 }
 
 .menu p,
+.products p,
 .contact p {
   color: #fff;
   text-align: center;
@@ -259,7 +305,53 @@ html {
 .menu .row .menu-card .menu-card-title {
   margin: 1rem auto 0.5rem;
 }
-/* penutuo menu section */
+/* penutup menu section */
+
+/* products section */
+.products .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.products .product-card {
+  text-align: center;
+  border: 1px solid #666;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.products .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.products .product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.3rem;
+  border: 1px solid #666;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products .product-icons a:hover {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.products .product-image {
+  padding: 1rem 0;
+}
+
+.products .product-image img {
+  height: 25rem;
+}
+/* penutup products section */
 
 /* contact section */
 .contact .row {
@@ -433,6 +525,11 @@ footer .credit a {
   .contact .row form {
     padding-top: 0;
   }
+
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
 }
 
 /* mobile */
@@ -445,4 +542,3 @@ footer .credit a {
     display: inline-block;
   }
 }
-/*penutup navbar */
