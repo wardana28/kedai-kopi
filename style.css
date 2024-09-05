@@ -690,7 +690,8 @@ footer .credit a {
   }
 
   .modal {
-    height: 75%;
+    height: 70%;
+    padding-top: 10rem;
   }
 
   .modal-content {
