@@ -689,6 +689,10 @@ footer .credit a {
     right: 2rem;
   }
 
+  .modal {
+    height: 64%;
+  }
+
   .modal-content {
     flex-wrap: wrap;
   }
