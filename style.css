@@ -402,7 +402,7 @@ html {
   border: 1px solid var(--primary);
 }
 .products .product-image {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .products .product-image img {
