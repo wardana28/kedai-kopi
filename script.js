@@ -10,7 +10,7 @@ document.querySelector("#hamburger-menu").onclick = (e) => {
 // klik diluar sidebar untukmenghilangkan navbar
 const hm = document.querySelector("#hamburger-menu");
 const sb = document.querySelector("#search-button");
-const sh = document.querySelector("#shop");
+const sh = document.querySelector("#shopping-cart-button");
 
 document.addEventListener("click", function (e) {
   if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
@@ -38,7 +38,7 @@ document.querySelector("#search-button").onclick = (e) => {
 
 const shoppingCart = document.querySelector(".shopping-cart");
 
-document.querySelector("#shop").onclick = (e) => {
+document.querySelector("#shopping-cart-button").onclick = (e) => {
   shoppingCart.classList.toggle("active");
   e.preventDefault();
 };

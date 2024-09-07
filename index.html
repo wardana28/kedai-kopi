@@ -16,10 +16,19 @@
 
     <!-- style -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- alpineJS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- app -->
+    <script src="src/app.js"></script>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar">
+    <nav class="navbar" x-data>
       <a href="#" class="navbar-logo">Kopi <span> Senja</span>.</a>
       <div class="navbar-nav">
         <a href="#home">Home</a>
@@ -30,7 +39,14 @@
       </div>
       <div class="navbar-exstra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shop"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
 
@@ -43,30 +59,27 @@
 
       <!-- shopping cart start -->
       <div class="shopping-cart">
-        <div class="cart-item">
-          <img src="img/products/package1.png" alt="produc 1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">IDR 45K</div>
+        <template x-for="(item, index) in $store.cart.items" x-keys="index">
+          <div class="cart-item">
+            <img :src="`img/products/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">
+                  &minus;
+                </button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
           </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/products/package1.png" alt="produc 1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">IDR 45K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/products/package1.png" alt="produc 1" />
-          <div class="item-detail">
-            <h3>Product 1</h3>
-            <div class="item-price">IDR 45K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length">
+          -Belum ada barang di keranjang-
+        </h4>
       </div>
     </nav>
 
@@ -242,149 +255,110 @@
     <!-- menu section end -->
 
     <!-- product section start -->
-    <section class="products" id="products">
+    <section class="products" id="products" x-data="products">
       <h2><span>Produk Unggulan</span> Kami</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
         praesentium deleniti architecto sapiente vero quod.
       </p>
+
       <div class="row">
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package1.png" alt="product 1" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Ventura Coffe</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="product-card">
+            <div class="product-icons">
+              <a href="#" @click.prevent="$store.cart.add(item)"
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" /></svg
+              ></a>
+              <a href="" class="item-detail-button"
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#eye" /></svg
+              ></a>
             </div>
-            <div class="product-price" style="color: #fff">
-              IDR 45K <span>IDR 60K</span>
+            <div class="product-image">
+              <img :src="`img/products/${item.img}`" :alt="item.name" />
             </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package2.png" alt="product 2" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Classic Expresso</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price" style="color: #fff">IDR 50K</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package3.webp" alt="product 3" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Monument Blend</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price" style="color: #fff">
-              IDR 35K <span>IDR 40K</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package4.png" alt="product 4" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Arabica Guatemala blend</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price" style="color: #fff">IDR 45K</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package5.png" alt="product 5" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Coffe Bros</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price" style="color: #fff">IDR 55K</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"
-              ><i data-feather="eye"></i
-            ></a>
-          </div>
-          <div class="product-image">
-            <img src="img/products/package6.png" alt="product 6" />
-          </div>
-          <div class="product-content">
-            <h3 style="color: white">Stretto</h3>
-            <div class="product-stars" style="color: white">
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star" class="stars-value"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-              <i data-feather="star"></i>
-            </div>
-            <div class="product-price" style="color: #fff">
-              IDR 35K <span>IDR 40K</span>
+            <div class="product-content">
+              <h3 style="color: #fff" x-text="item.name"></h3>
+              <div class="product-stars" style="color: rgb(223, 164, 26)">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#star" />
+                </svg>
+              </div>
+              <div class="product-price" style="color: #fff">
+                <span x-text="rupiah(item.price)"></span>
+              </div>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
     <!-- product section end -->
