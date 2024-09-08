@@ -174,7 +174,7 @@ html {
 }
 
 .shopping-cart img {
-  height: 4rem;
+  height: 7rem;
 }
 
 .shopping-cart h3 {
@@ -202,6 +202,55 @@ html {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 2rem;
+}
+
+/* ceckout form */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.form-container h5 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-container form {
+  width: 100%;
+  text-align: center;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: #ddd;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+  color: white;
+}
+
+.form-container .checkout-button {
+  padding: 6px 14px;
+  background-color: var(--primary);
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin: 1rem auto;
+  cursor: pointer;
 }
 /* penutup shopping cart */
 

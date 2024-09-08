@@ -80,6 +80,38 @@
         <h4 x-show="!$store.cart.items.length">
           -Belum ada barang di keranjang-
         </h4>
+        <h4 x-show="$store.cart.items.length">
+          total: <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkout-form">
+            <h5>Customer Detail</h5>
+
+            <label for="name">
+              <span>Nama</span>
+              <input type="text" name="name" id="name" />
+            </label>
+
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" />
+            </label>
+
+            <label for="phone">
+              <span>No Telp</span>
+              <input type="number" name="phone" id="phone" autocomplete="off" />
+            </label>
+
+            <button
+              class="checkout-button"
+              type="submit"
+              id="checkout-button"
+              value="checkout"
+            >
+              checkout
+            </button>
+          </form>
+        </div>
       </div>
     </nav>
 
@@ -451,7 +483,8 @@
               IDR 45K <span>IDR 60K</span>
             </div>
             <a href="#"
-              ><i data-feather="shopping-cart"></i><span>add to cart</span></a
+              ><i data-feather="shopping-cart"></i
+              ><span @click="$store.cart.add(item)">add to cart</span></a
             >
           </div>
         </div>
