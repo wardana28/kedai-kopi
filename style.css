@@ -155,6 +155,7 @@ html {
   background-color: #fff;
   color: var(--bg);
   transition: 1s;
+  z-index: 9999;
   overflow-y: auto;
 }
 
