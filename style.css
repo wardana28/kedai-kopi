@@ -710,6 +710,11 @@ footer .credit a {
   .modal-content {
     flex-wrap: wrap;
   }
+
+  .modal-container {
+    height: 47%;
+    margin-top: 55%;
+  }
 }
 
 /* mobile */
