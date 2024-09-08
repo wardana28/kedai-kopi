@@ -248,6 +248,7 @@ html {
   background-color: var(--primary);
   font-weight: bold;
   font-size: 1rem;
+  color: white;
   border-radius: 20px;
   margin: 1rem auto;
   cursor: pointer;
