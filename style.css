@@ -598,7 +598,7 @@ footer .credit a {
 /* modal box  */
 /* item detail */
 .modal {
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 99999;
   left: 0;

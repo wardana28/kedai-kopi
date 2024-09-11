@@ -32,11 +32,20 @@
       href="/img/products/favicon.ico"
       type="image/x-icon"
     />
+
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar" x-data>
-      <a href="#" class="navbar-logo">Kopi <span> Senja</span>.</a>
+      <a
+        href="#"
+        class="navbar-logo"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        >Kopi <span> Senja</span>.</a
+      >
       <div class="navbar-nav">
         <a href="#home">Home</a>
         <a href="#about">Tentang</a>
@@ -44,7 +53,7 @@
         <a href="#products">produk</a>
         <a href="#contact">Kontak</a>
       </div>
-      <div class="navbar-exstra">
+      <div class="navbar-exstra" data-aos="zoom-in" data-aos-duration="1000">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
         <a href="#" id="shopping-cart-button">
           <i data-feather="shopping-cart"></i>
@@ -131,10 +140,10 @@
     <!-- hero section start -->
     <section class="hero" id="home">
       <main class="content">
-        <h1>
+        <h1 data-aos="fade-right" data-aos-duration="500">
           Menyelami Kehidupan dalam Setiap Tegukan Kopi <span>Senja</span>
         </h1>
-        <p>
+        <p data-aos="fade-right" data-aos-duration="700">
           Dalam secangkir Kopi Senja, tersembunyi refleksi kehidupan. Diracik
           dari biji kopi yang terpilih, setiap tetesnya mengajarkan bahwa
           seperti senja, kehidupan adalah perpaduan antara cahaya dan
@@ -142,14 +151,22 @@
           peralihan waktu. Nikmatilah, dan temukan dirimu di antara heningnya
           senja dan hangatnya kopi.
         </p>
-        <a href="#products" class="cta">order sekarang</a>
+        <a
+          href="#products"
+          class="cta"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          >order sekarang</a
+        >
       </main>
     </section>
     <!-- hero section end -->
 
     <!-- about section start -->
     <section id="about" class="about">
-      <h2><span>Tentang</span>kami</h2>
+      <h2 data-aos="fade-down" data-aos-duration="1000">
+        <span>Tentang</span>kami
+      </h2>
 
       <div class="row">
         <div class="about-img">
@@ -158,9 +175,11 @@
             width="120"
             height="116"
             alt="tentang kami"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
           />
         </div>
-        <div class="content">
+        <div class="content" data-aos="zoom-in" data-aos-duration="1000">
           <h3>Tentang kopi Senja</h3>
           <p>
             Kopi Senja adalah tempat di mana kehangatan dan kelezatan secangkir
@@ -195,15 +214,17 @@
 
     <!-- menu section -->
     <section id="menu" class="menu">
-      <h2><span>Menu </span>kami</h2>
-      <p>
+      <h2 data-aos="fade-down" data-aos-duration="1000">
+        <span>Menu </span>kami
+      </h2>
+      <p data-aos="fade-down" data-aos-duration="1000">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti modi
         doloribus dolores sint ab mollitia ducimus nulla sequi, repellendus
         impedit?
       </p>
 
       <div class="row">
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/kopi toraja.jpeg"
             alt="kopi toraja"
@@ -214,7 +235,7 @@
           <h3 class="menu-card-title">-Kopi Toraja-</h3>
           <p class="menu-card-price">IDR 15K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/kopi luwak.jpg"
             alt="kopi luwak"
@@ -225,7 +246,7 @@
           <h3 class="menu-card-title">-Kopi Luwak-</h3>
           <p class="menu-card-price">IDR 25K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/kopi ekpreso.jpg"
             alt="kopi ekpreso"
@@ -236,7 +257,7 @@
           <h3 class="menu-card-title">-kopi Expresso-</h3>
           <p class="menu-card-price">IDR 20K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/kopi-aceh.jpg"
             alt="kopi aceh"
@@ -247,7 +268,7 @@
           <h3 class="menu-card-title">-Kopi Aceh-</h3>
           <p class="menu-card-price">IDR 15K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/dalgona.webp"
             alt="dalgona"
@@ -258,7 +279,7 @@
           <h3 class="menu-card-title">-Kopi Dalgona-</h3>
           <p class="menu-card-price">IDR 10K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/latte.jpg"
             alt="latte"
@@ -269,7 +290,7 @@
           <h3 class="menu-card-title">-Kopi Latte-</h3>
           <p class="menu-card-price">IDR 20K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/Iced-Americano.jpg"
             alt="kopi toraja"
@@ -280,7 +301,7 @@
           <h3 class="menu-card-title">-Kopi Iced Americano-</h3>
           <p class="menu-card-price">IDR 15K</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-aos="zoom-in-down" data-aos-duration="900">
           <img
             src="img/macchiato.jpg"
             alt="kopi macchiato"
@@ -297,8 +318,10 @@
 
     <!-- product section start -->
     <section class="products" id="products" x-data="products">
-      <h2><span>Produk Unggulan</span> Kami</h2>
-      <p>
+      <h2 data-aos="zoom-in-down" data-aos-duration="900">
+        <span>Produk Unggulan</span> Kami
+      </h2>
+      <p data-aos="zoom-in-down" data-aos-duration="900">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
         praesentium deleniti architecto sapiente vero quod.
       </p>
@@ -504,6 +527,12 @@
     <!-- icon -->
     <script>
       feather.replace();
+    </script>
+
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
 
     <!-- javascript -->
